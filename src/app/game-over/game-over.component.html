@@ -1,0 +1,12 @@
+<h2> Game Over! </h2>
+<!--<p> Score: {{Score}}</p>-->
+<input type="text" id="name-input" #newName />
+<button (click)="addNewPlayer(newName.value)">Add to Scoreboard</button>
+<div>
+  <ul>
+    <li *ngFor="let name of names">{{name}}</li>
+  </ul>
+  <ul>
+    <li *ngFor="let score of scores">{{score}}</li>
+  </ul>
+</div>

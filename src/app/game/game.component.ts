@@ -45,6 +45,7 @@ export class GameComponent implements OnInit {
       console.log("Player is incorrect");
       this.ScoreEvent(this.gameScore);
       console.log("current score is ", this.gameScore);
+      this.gameScore = 0;
     }
   }
 
@@ -59,6 +60,7 @@ export class GameComponent implements OnInit {
       console.log("Player is incorrect");
       this.ScoreEvent(this.gameScore);
       console.log("current score is ", this.gameScore);
+      this.gameScore = 0;
     }
   }
 

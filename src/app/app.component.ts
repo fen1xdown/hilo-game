@@ -15,7 +15,7 @@ export class AppComponent {
   scores = [1];
 
   showGame = true;
-  showGameOver = false;
+  showGameOver = true;
 
   @Output() newNameEvent = new EventEmitter<string>();
 

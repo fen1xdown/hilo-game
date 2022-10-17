@@ -1,19 +1,20 @@
-<h2>High-Low Game</h2>
-<ng-container *ngIf="showGame">
-  <app-game (updateScoreEvent)="onScoreEvent($event)"></app-game>
-</ng-container>
-<ng-container *ngIf="showGameOver">
-  <h2> Game Over! </h2>
-  <p> Final Score: {{finalScore}}</p>
-  <input type="text" id="name-input" #newName />
-  <button (click)="addNewPlayer(newName.value)">Add to Scoreboard</button>
-  <div>
-    <ul>
-      <li *ngFor="let name of names">{{name}}</li>
-    </ul>
-    <ul>
-      <li *ngFor="let score of scores">{{score}}</li>
-    </ul>
-  </div>
-</ng-container>
+<div class="outer-game">
+  <h1 class="grid text-center">High-Low Game</h1>
+  <ng-container *ngIf="showGame" class="grid text-center">
+    <app-game (updateScoreEvent)="onScoreEvent($event)"></app-game>
+  </ng-container>
+  <ng-container *ngIf="showGameOver" class="grid text-center">
+    <h2 class="grid text-center"> Game Over! </h2>
+    <p class="grid text-center"> Final Score: {{finalScore}}</p>
+    <input type="text" id="name-input" #newName class="grid text-center" />
+    <button class="grid text-center" (click)="saveData(newName.value)">Add to Scoreboard</button>
+    <div *ngIf="session" class="grid text-center">
+      <div class="g-col-6">
+        <h1>Current High Score</h1>
+        <h2>Name: {{session.name}}</h2>
+        <h2>Score: {{session.score}}</h2>
+      </div>
+    </div>
+  </ng-container>
   <router-outlet></router-outlet>
+</div>

@@ -1,31 +1,63 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-/*import { GameComponent } from '';*/
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   title = 'hilo-game';
 
-/*  @Input() Score = 0;*/
   public finalScore = 0;
-  names = ['test'];
-  scores = [1];
 
-  showGame = true;
-  showGameOver = true;
+  id = 0;
+  name = '';
+  score = 0;
+  session: any;
+  myList: any;
 
-  @Output() newNameEvent = new EventEmitter<string>();
 
-  addNewPlayer(newName: string) {
-    this.onScoreEvent
-    this.names.push(newName);
-    this.scores.push(this.finalScore);
+  public showGame = true;
+  public showGameOver = true;
+
+  ngOnInit(): any {
+    this.loadData();
+    this.showGameOver = false;
+    return this.showGameOver;
   }
 
   onScoreEvent(updateScore: number) {
     this.finalScore = updateScore;
+    this.showGameOver = true;
+    this.showGame = false;
+    return this.showGameOver;
+    return this.showGame;
   }
+
+  saveData(newName: string) {
+    if (this.finalScore > this.session.score) {
+      let data = {
+        id: new Date().getTime(),
+        name: newName,
+        score: this.finalScore
+      };
+      localStorage.setItem("session", JSON.stringify(data));
+      this.loadData();
+    }
+    else {
+      null
+    }
+    this.showGameOver = false;
+    this.showGame = true;
+    return this.showGameOver;
+    return this.showGame;
+  }
+
+  loadData() {
+    let data: any = localStorage.getItem("session") || [];
+    this.session = JSON.parse(data);
+  }
+
 }

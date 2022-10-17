@@ -1,13 +1,10 @@
-  <div class="child">
-  <p>Score: <p #updatedScore>{{gameScore}}</p>
-  <div>
-    <button (click)="Hi()">Higher</button>
-    <button (click)="Lo()">Lower</button>
-  </div>
-  <div>
-    Initial Number: {{InitNum}}
-  </div>
-  <div>
-    debug: {{NewNum}}
-  </div>
+  <div class="child grid text-center">
+    <div class="grid text-center">
+      <h2>{{InitNum}}</h2>
+    </div>
+    <div class="grid text-center">
+      <button class="g-col-6" (click)="Hi()">Higher</button>
+      <button class="g-col-6" (click)="Lo()">Lower</button>
+    </div>
+    <h2>Score: </h2><h2 #updatedScore>{{gameScore}}</h2> 
 </div>

@@ -6,14 +6,13 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-game',
   templateUrl: './game.component.html',
-  styleUrls: ['./game.component.css']
+  styleUrls: ['./game.component.scss']
 })
 export class GameComponent implements OnInit {
 
   public gameScore = 0;
   InitNum = Math.floor(Math.random() * 10) + 1;
   NewNum = 0;
-  session: any;
 
   @Output() updateScoreEvent = new EventEmitter<number>();
 
@@ -22,7 +21,6 @@ export class GameComponent implements OnInit {
   ngOnInit(): void {
     this.getNewNum();
     this.getNewNum();
-    this.saveData();
   }
 
   public ScoreEvent(score: number) {
@@ -69,20 +67,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  saveData() {
-    let data = {
-      id: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-      name: ['adam', 'brian', 'cameron', 'david', 'eric', 'frank', 'greg', 'harold', 'ian', 'jack'],
-      score: [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
-    };
 
-    localStorage.setItem('session', JSON.stringify(data));
-  }
-
-  loadData() {
-    let data: any = localStorage.getItem('session');
-    this.session = JSON.parse(data);
-  }
 
   // create ID for new score to be saved, retrieve name and score and send them to localStorage
   // have scoreboard rank all scores by score, display accordingly

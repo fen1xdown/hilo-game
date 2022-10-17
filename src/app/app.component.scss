@@ -1,0 +1,19 @@
+@import "../../node_modules/bootstrap/scss/bootstrap";
+@import "../../node_modules/bootstrap/scss/variables";
+@import "../../node_modules/bootstrap/scss/maps";
+@import "../../node_modules/bootstrap/scss/mixins";
+@import "../../node_modules/bootstrap/scss/root";
+@import "../../node_modules/bootstrap/scss/reboot";
+@import "../../node_modules/bootstrap/scss/type";
+
+.outer-game {
+    background-color: #007632;
+    border: 5px solid darkcyan;
+    width: 350px;
+    margin: auto;
+    margin-top: 7%;
+}
+
+h1, h2, p {
+    color: white;
+}
